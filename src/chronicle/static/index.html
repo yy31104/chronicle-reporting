@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en-US">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Chronicle · Data versions and evidence</title><link rel="stylesheet" href="/assets/style.css"></head>
+<body>
+<header><a href="/" class="brand">CHRONICLE<span>Data versions and evidence</span></a><span class="private">● Private workspace</span><button id="logout" hidden>Sign out</button></header>
+<main>
+<section id="login" class="login"><p class="eyebrow">PRIVATE RESEARCH WORKSPACE</p><h1>Every number<br>has a source.</h1><p>Compare reports under explicit snapshots and time rules. Inspect every revision and calculation input.</p><form id="login-form"><label>Access token<input id="token" type="password" autocomplete="off" required placeholder="Enter a viewer or operator token"></label><button type="submit">Open workspace →</button></form><small>Tokens stay in page memory. Sign in again after refreshing.</small></section>
+<section id="workspace" hidden>
+<div class="heading"><div><p class="eyebrow">VERSIONED MONTHLY REPORT</p><h1>Monthly reports</h1></div><div class="badge" id="identity"></div></div>
+<form id="report-form" class="controls">
+<label>Dataset<select id="dataset"></select></label>
+<label>Source and series<select id="series" required disabled></select></label>
+<label>Metric<select id="formula"><option value="employment_delta">Monthly employment change</option><option value="production_mean3">Production index, three-month mean</option></select></label>
+<label>Report month<input id="month" type="month" value="2026-01" required></label>
+<label>Time mode<select id="mode"><option value="system_snapshot">Named snapshot</option><option value="source_as_of">Source cutoff date</option><option value="latest_corrected">Latest within snapshot</option></select></label>
+<label>Left snapshot<select id="left-snapshot" required disabled></select></label>
+<label>Right snapshot<select id="right-snapshot" required disabled></select></label>
+<label id="cutoff-label" hidden>Cutoff (exclusive)<input id="cutoff" type="date" value="2026-03-16"></label>
+<button type="submit" id="run" disabled>Build and compare →</button>
+</form>
+<p class="note" id="scope-note">Each report pins a snapshot. Release dates and receipt times remain separate; missing values never become zero.</p>
+<div id="results" hidden><div class="results-heading"><h2>Comparison</h2><button id="export" type="button">Download report JSON</button></div><div class="table-scroll"><table><thead><tr><th>Metric / month</th><th id="left-label">Left</th><th id="right-label">Right</th><th>Difference<small>Saved output subtraction</small></th><th>Exact difference<small>Rational subtraction, rounded once</small></th></tr></thead><tbody id="rows"></tbody></table></div><p class="note">Stored difference subtracts saved 12-place outputs. Exact difference uses retained inputs and rounds once to 12 places, half-even. Decimal places describe calculation precision, not measurement precision.</p><div class="evidence-grid"><section><h2>Left evidence</h2><div id="left-evidence"></div></section><section><h2>Right evidence</h2><div id="right-evidence"></div></section></div></div>
+</section>
+<div id="notice" role="status" aria-live="polite"></div>
+</main><footer>Chronicle <span>Explicit time rules · Retained history · Verifiable evidence</span></footer>
+<script src="/assets/app.js" defer></script></body></html>

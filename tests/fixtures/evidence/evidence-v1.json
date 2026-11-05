@@ -1,0 +1,776 @@
+{
+  "id": "E1",
+  "synthetic": true,
+  "description": "Hand-authored evidence expectations before the production evidence query. Receipt clocks are simulated. Expected $dataset is replaced only with the isolated test dataset identifier. All other fields are literal.",
+  "revisions": [
+    {
+      "source_namespace": "evidence-synthetic",
+      "series_key": "employment",
+      "observation_month": "2026-01-01",
+      "source_revision_key": "R1",
+      "source_order": 1,
+      "order_rule": "documented_sequence",
+      "availability": {
+        "precision": "date",
+        "date": "2026-02-15"
+      },
+      "value": "+00100.0",
+      "status": "value",
+      "unit": {
+        "name": "thousand_persons",
+        "metadata_version": "v1"
+      },
+      "occurrences": [
+        {
+          "batch_id": "B1",
+          "received_at": "2026-02-16T10:00:00Z"
+        },
+        {
+          "batch_id": "B2",
+          "received_at": "2026-03-01T11:00:00Z"
+        },
+        {
+          "batch_id": "B3",
+          "received_at": "2026-04-01T12:00:00Z"
+        }
+      ]
+    },
+    {
+      "source_namespace": "evidence-synthetic",
+      "series_key": "employment",
+      "observation_month": "2026-01-01",
+      "source_revision_key": "R2",
+      "source_order": 2,
+      "order_rule": "documented_sequence",
+      "availability": {
+        "precision": "unknown",
+        "date": null
+      },
+      "value": "103",
+      "status": "value",
+      "unit": {
+        "name": "thousand_persons",
+        "metadata_version": "v1"
+      },
+      "occurrences": [
+        {
+          "batch_id": "B2",
+          "received_at": "2026-03-01T11:00:00Z"
+        }
+      ]
+    },
+    {
+      "source_namespace": "evidence-synthetic",
+      "series_key": "employment",
+      "observation_month": "2026-01-01",
+      "source_revision_key": "R3",
+      "source_order": 3,
+      "order_rule": "documented_sequence",
+      "availability": {
+        "precision": "date",
+        "date": "2026-03-10"
+      },
+      "value": null,
+      "status": "withdrawn",
+      "unit": {
+        "name": "persons",
+        "metadata_version": "v2"
+      },
+      "occurrences": [
+        {
+          "batch_id": "B3",
+          "received_at": "2026-04-01T12:00:00Z"
+        }
+      ]
+    },
+    {
+      "source_namespace": "evidence-synthetic",
+      "series_key": "employment",
+      "observation_month": "2026-02-01",
+      "source_revision_key": "R3",
+      "source_order": 3,
+      "order_rule": "documented_sequence",
+      "availability": {
+        "precision": "date",
+        "date": "2026-03-10"
+      },
+      "value": null,
+      "status": "missing",
+      "unit": {
+        "name": "persons",
+        "metadata_version": "v2"
+      },
+      "occurrences": [
+        {
+          "batch_id": "B3",
+          "received_at": "2026-04-01T12:00:00Z"
+        }
+      ]
+    },
+    {
+      "source_namespace": "evidence-synthetic",
+      "series_key": "employment",
+      "observation_month": "2026-03-01",
+      "source_revision_key": "R4",
+      "source_order": 4,
+      "order_rule": "documented_sequence",
+      "availability": {
+        "precision": "date",
+        "date": "2026-04-15"
+      },
+      "value": "110",
+      "status": "value",
+      "unit": {
+        "name": "thousand_persons",
+        "metadata_version": "v1"
+      },
+      "occurrences": [
+        {
+          "batch_id": "B4",
+          "received_at": "2026-04-16T12:00:00Z"
+        }
+      ]
+    },
+    {
+      "source_namespace": "evidence-synthetic",
+      "series_key": "employment",
+      "observation_month": "2026-03-01",
+      "source_revision_key": "R5",
+      "source_order": 5,
+      "order_rule": "documented_sequence",
+      "availability": {
+        "precision": "date",
+        "date": "2026-04-10"
+      },
+      "value": "111",
+      "status": "value",
+      "unit": {
+        "name": "thousand_persons",
+        "metadata_version": "v1"
+      },
+      "occurrences": [
+        {
+          "batch_id": "B5",
+          "received_at": "2026-04-17T12:00:00Z"
+        }
+      ]
+    }
+  ],
+  "snapshots": {
+    "S1": [
+      "B1"
+    ],
+    "S2": [
+      "B1",
+      "B2"
+    ],
+    "S3": [
+      "B1",
+      "B2",
+      "B3"
+    ],
+    "S_REOBSERVED": [
+      "B3",
+      "B1"
+    ],
+    "S4": [
+      "B4",
+      "B5"
+    ]
+  },
+  "queries": [
+    {
+      "name": "old_snapshot_excludes_later_receipts_and_unknown",
+      "mode": "system_snapshot",
+      "snapshot_id": "S1",
+      "source_namespace": "evidence-synthetic",
+      "series_key": "employment",
+      "months": [
+        "2026-01-01"
+      ],
+      "cutoff": null,
+      "expected_unit": null,
+      "expected": [
+        {
+          "evidence_schema": "chronicle.evidence.v1",
+          "dataset_id": "$dataset",
+          "snapshot_id": "S1",
+          "source_namespace": "evidence-synthetic",
+          "series_key": "employment",
+          "observation_month": "2026-01-01",
+          "mode": "system_snapshot",
+          "exclusive_end_date": null,
+          "status": "value",
+          "value": "+00100.0",
+          "source_status": "value",
+          "unit_compatible": true,
+          "unit": {
+            "name": "thousand_persons",
+            "metadata_version": "v1"
+          },
+          "availability_unknown": false,
+          "selected_revision": {
+            "dataset_id": "$dataset",
+            "source_namespace": "evidence-synthetic",
+            "series_key": "employment",
+            "observation_month": "2026-01-01",
+            "source_revision_key": "R1",
+            "snapshot_id": "S1",
+            "source_order": 1,
+            "availability": {
+              "precision": "date",
+              "date": "2026-02-15"
+            },
+            "source_status": "value",
+            "lexical_value": "+00100.0",
+            "unit": {
+              "name": "thousand_persons",
+              "metadata_version": "v1"
+            },
+            "occurrences": [
+              {
+                "dataset_id": "$dataset",
+                "source_namespace": "evidence-synthetic",
+                "series_key": "employment",
+                "observation_month": "2026-01-01",
+                "source_revision_key": "R1",
+                "snapshot_id": "S1",
+                "batch_id": "B1",
+                "received_at": "2026-02-16T10:00:00.000000Z"
+              }
+            ]
+          },
+          "blocking_revision": null
+        }
+      ]
+    },
+    {
+      "name": "reobservation_only_matching_batches_sorted",
+      "mode": "source_as_of",
+      "snapshot_id": "S_REOBSERVED",
+      "source_namespace": "evidence-synthetic",
+      "series_key": "employment",
+      "months": [
+        "2026-01-01"
+      ],
+      "cutoff": {
+        "exclusive_end_date": "2026-03-01"
+      },
+      "expected_unit": {
+        "name": "thousand_persons",
+        "metadata_version": "v1"
+      },
+      "expected": [
+        {
+          "evidence_schema": "chronicle.evidence.v1",
+          "dataset_id": "$dataset",
+          "snapshot_id": "S_REOBSERVED",
+          "source_namespace": "evidence-synthetic",
+          "series_key": "employment",
+          "observation_month": "2026-01-01",
+          "mode": "source_as_of",
+          "exclusive_end_date": "2026-03-01",
+          "status": "value",
+          "value": "+00100.0",
+          "source_status": "value",
+          "unit_compatible": true,
+          "unit": {
+            "name": "thousand_persons",
+            "metadata_version": "v1"
+          },
+          "availability_unknown": false,
+          "selected_revision": {
+            "dataset_id": "$dataset",
+            "source_namespace": "evidence-synthetic",
+            "series_key": "employment",
+            "observation_month": "2026-01-01",
+            "source_revision_key": "R1",
+            "snapshot_id": "S_REOBSERVED",
+            "source_order": 1,
+            "availability": {
+              "precision": "date",
+              "date": "2026-02-15"
+            },
+            "source_status": "value",
+            "lexical_value": "+00100.0",
+            "unit": {
+              "name": "thousand_persons",
+              "metadata_version": "v1"
+            },
+            "occurrences": [
+              {
+                "dataset_id": "$dataset",
+                "source_namespace": "evidence-synthetic",
+                "series_key": "employment",
+                "observation_month": "2026-01-01",
+                "source_revision_key": "R1",
+                "snapshot_id": "S_REOBSERVED",
+                "batch_id": "B1",
+                "received_at": "2026-02-16T10:00:00.000000Z"
+              },
+              {
+                "dataset_id": "$dataset",
+                "source_namespace": "evidence-synthetic",
+                "series_key": "employment",
+                "observation_month": "2026-01-01",
+                "source_revision_key": "R1",
+                "snapshot_id": "S_REOBSERVED",
+                "batch_id": "B3",
+                "received_at": "2026-04-01T12:00:00.000000Z"
+              }
+            ]
+          },
+          "blocking_revision": null
+        }
+      ]
+    },
+    {
+      "name": "unknown_blocks_authoritative_candidate",
+      "mode": "source_as_of",
+      "snapshot_id": "S2",
+      "source_namespace": "evidence-synthetic",
+      "series_key": "employment",
+      "months": [
+        "2026-01-01"
+      ],
+      "cutoff": {
+        "exclusive_end_date": "2026-03-01"
+      },
+      "expected_unit": {
+        "name": "thousand_persons",
+        "metadata_version": "v1"
+      },
+      "expected": [
+        {
+          "evidence_schema": "chronicle.evidence.v1",
+          "dataset_id": "$dataset",
+          "snapshot_id": "S2",
+          "source_namespace": "evidence-synthetic",
+          "series_key": "employment",
+          "observation_month": "2026-01-01",
+          "mode": "source_as_of",
+          "exclusive_end_date": "2026-03-01",
+          "status": "unknown_availability",
+          "value": null,
+          "source_status": null,
+          "unit_compatible": null,
+          "unit": null,
+          "availability_unknown": true,
+          "selected_revision": null,
+          "blocking_revision": {
+            "dataset_id": "$dataset",
+            "source_namespace": "evidence-synthetic",
+            "series_key": "employment",
+            "observation_month": "2026-01-01",
+            "source_revision_key": "R2",
+            "snapshot_id": "S2",
+            "source_order": 2,
+            "availability": {
+              "precision": "unknown",
+              "date": null
+            },
+            "source_status": "value",
+            "lexical_value": "103",
+            "unit": {
+              "name": "thousand_persons",
+              "metadata_version": "v1"
+            },
+            "occurrences": [
+              {
+                "dataset_id": "$dataset",
+                "source_namespace": "evidence-synthetic",
+                "series_key": "employment",
+                "observation_month": "2026-01-01",
+                "source_revision_key": "R2",
+                "snapshot_id": "S2",
+                "batch_id": "B2",
+                "received_at": "2026-03-01T11:00:00.000000Z"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "latest_unknown_is_selected_with_warning",
+      "mode": "latest_corrected",
+      "snapshot_id": "S2",
+      "source_namespace": "evidence-synthetic",
+      "series_key": "employment",
+      "months": [
+        "2026-01-01"
+      ],
+      "cutoff": null,
+      "expected_unit": {
+        "name": "thousand_persons",
+        "metadata_version": "v1"
+      },
+      "expected": [
+        {
+          "evidence_schema": "chronicle.evidence.v1",
+          "dataset_id": "$dataset",
+          "snapshot_id": "S2",
+          "source_namespace": "evidence-synthetic",
+          "series_key": "employment",
+          "observation_month": "2026-01-01",
+          "mode": "latest_corrected",
+          "exclusive_end_date": null,
+          "status": "value",
+          "value": "103",
+          "source_status": "value",
+          "unit_compatible": true,
+          "unit": {
+            "name": "thousand_persons",
+            "metadata_version": "v1"
+          },
+          "availability_unknown": true,
+          "selected_revision": {
+            "dataset_id": "$dataset",
+            "source_namespace": "evidence-synthetic",
+            "series_key": "employment",
+            "observation_month": "2026-01-01",
+            "source_revision_key": "R2",
+            "snapshot_id": "S2",
+            "source_order": 2,
+            "availability": {
+              "precision": "unknown",
+              "date": null
+            },
+            "source_status": "value",
+            "lexical_value": "103",
+            "unit": {
+              "name": "thousand_persons",
+              "metadata_version": "v1"
+            },
+            "occurrences": [
+              {
+                "dataset_id": "$dataset",
+                "source_namespace": "evidence-synthetic",
+                "series_key": "employment",
+                "observation_month": "2026-01-01",
+                "source_revision_key": "R2",
+                "snapshot_id": "S2",
+                "batch_id": "B2",
+                "received_at": "2026-03-01T11:00:00.000000Z"
+              }
+            ]
+          },
+          "blocking_revision": null
+        }
+      ]
+    },
+    {
+      "name": "source_status_survives_unit_mismatch_and_absence",
+      "mode": "latest_corrected",
+      "snapshot_id": "S3",
+      "source_namespace": "evidence-synthetic",
+      "series_key": "employment",
+      "months": [
+        "2026-01-01",
+        "2026-02-01",
+        "2026-03-01"
+      ],
+      "cutoff": null,
+      "expected_unit": {
+        "name": "thousand_persons",
+        "metadata_version": "v1"
+      },
+      "expected": [
+        {
+          "evidence_schema": "chronicle.evidence.v1",
+          "dataset_id": "$dataset",
+          "snapshot_id": "S3",
+          "source_namespace": "evidence-synthetic",
+          "series_key": "employment",
+          "observation_month": "2026-01-01",
+          "mode": "latest_corrected",
+          "exclusive_end_date": null,
+          "status": "unit_mismatch",
+          "value": null,
+          "source_status": "withdrawn",
+          "unit_compatible": false,
+          "unit": {
+            "name": "persons",
+            "metadata_version": "v2"
+          },
+          "availability_unknown": false,
+          "selected_revision": {
+            "dataset_id": "$dataset",
+            "source_namespace": "evidence-synthetic",
+            "series_key": "employment",
+            "observation_month": "2026-01-01",
+            "source_revision_key": "R3",
+            "snapshot_id": "S3",
+            "source_order": 3,
+            "availability": {
+              "precision": "date",
+              "date": "2026-03-10"
+            },
+            "source_status": "withdrawn",
+            "lexical_value": null,
+            "unit": {
+              "name": "persons",
+              "metadata_version": "v2"
+            },
+            "occurrences": [
+              {
+                "dataset_id": "$dataset",
+                "source_namespace": "evidence-synthetic",
+                "series_key": "employment",
+                "observation_month": "2026-01-01",
+                "source_revision_key": "R3",
+                "snapshot_id": "S3",
+                "batch_id": "B3",
+                "received_at": "2026-04-01T12:00:00.000000Z"
+              }
+            ]
+          },
+          "blocking_revision": null
+        },
+        {
+          "evidence_schema": "chronicle.evidence.v1",
+          "dataset_id": "$dataset",
+          "snapshot_id": "S3",
+          "source_namespace": "evidence-synthetic",
+          "series_key": "employment",
+          "observation_month": "2026-02-01",
+          "mode": "latest_corrected",
+          "exclusive_end_date": null,
+          "status": "unit_mismatch",
+          "value": null,
+          "source_status": "missing",
+          "unit_compatible": false,
+          "unit": {
+            "name": "persons",
+            "metadata_version": "v2"
+          },
+          "availability_unknown": false,
+          "selected_revision": {
+            "dataset_id": "$dataset",
+            "source_namespace": "evidence-synthetic",
+            "series_key": "employment",
+            "observation_month": "2026-02-01",
+            "source_revision_key": "R3",
+            "snapshot_id": "S3",
+            "source_order": 3,
+            "availability": {
+              "precision": "date",
+              "date": "2026-03-10"
+            },
+            "source_status": "missing",
+            "lexical_value": null,
+            "unit": {
+              "name": "persons",
+              "metadata_version": "v2"
+            },
+            "occurrences": [
+              {
+                "dataset_id": "$dataset",
+                "source_namespace": "evidence-synthetic",
+                "series_key": "employment",
+                "observation_month": "2026-02-01",
+                "source_revision_key": "R3",
+                "snapshot_id": "S3",
+                "batch_id": "B3",
+                "received_at": "2026-04-01T12:00:00.000000Z"
+              }
+            ]
+          },
+          "blocking_revision": null
+        },
+        {
+          "evidence_schema": "chronicle.evidence.v1",
+          "dataset_id": "$dataset",
+          "snapshot_id": "S3",
+          "source_namespace": "evidence-synthetic",
+          "series_key": "employment",
+          "observation_month": "2026-03-01",
+          "mode": "latest_corrected",
+          "exclusive_end_date": null,
+          "status": "not_available_at_cutoff",
+          "value": null,
+          "source_status": null,
+          "unit_compatible": null,
+          "unit": null,
+          "availability_unknown": false,
+          "selected_revision": null,
+          "blocking_revision": null
+        }
+      ]
+    },
+    {
+      "name": "inverted_dates_choose_source_order_not_latest_date",
+      "mode": "source_as_of",
+      "snapshot_id": "S4",
+      "source_namespace": "evidence-synthetic",
+      "series_key": "employment",
+      "months": [
+        "2026-03-01"
+      ],
+      "cutoff": {
+        "exclusive_end_date": "2026-04-16"
+      },
+      "expected_unit": {
+        "name": "thousand_persons",
+        "metadata_version": "v1"
+      },
+      "expected": [
+        {
+          "evidence_schema": "chronicle.evidence.v1",
+          "dataset_id": "$dataset",
+          "snapshot_id": "S4",
+          "source_namespace": "evidence-synthetic",
+          "series_key": "employment",
+          "observation_month": "2026-03-01",
+          "mode": "source_as_of",
+          "exclusive_end_date": "2026-04-16",
+          "status": "value",
+          "value": "111",
+          "source_status": "value",
+          "unit_compatible": true,
+          "unit": {
+            "name": "thousand_persons",
+            "metadata_version": "v1"
+          },
+          "availability_unknown": false,
+          "selected_revision": {
+            "dataset_id": "$dataset",
+            "source_namespace": "evidence-synthetic",
+            "series_key": "employment",
+            "observation_month": "2026-03-01",
+            "source_revision_key": "R5",
+            "snapshot_id": "S4",
+            "source_order": 5,
+            "availability": {
+              "precision": "date",
+              "date": "2026-04-10"
+            },
+            "source_status": "value",
+            "lexical_value": "111",
+            "unit": {
+              "name": "thousand_persons",
+              "metadata_version": "v1"
+            },
+            "occurrences": [
+              {
+                "dataset_id": "$dataset",
+                "source_namespace": "evidence-synthetic",
+                "series_key": "employment",
+                "observation_month": "2026-03-01",
+                "source_revision_key": "R5",
+                "snapshot_id": "S4",
+                "batch_id": "B5",
+                "received_at": "2026-04-17T12:00:00.000000Z"
+              }
+            ]
+          },
+          "blocking_revision": null
+        }
+      ]
+    },
+    {
+      "name": "inverted_date_cutoff_applies_before_order",
+      "mode": "source_as_of",
+      "snapshot_id": "S4",
+      "source_namespace": "evidence-synthetic",
+      "series_key": "employment",
+      "months": [
+        "2026-03-01"
+      ],
+      "cutoff": {
+        "exclusive_end_date": "2026-04-12"
+      },
+      "expected_unit": {
+        "name": "thousand_persons",
+        "metadata_version": "v1"
+      },
+      "expected": [
+        {
+          "evidence_schema": "chronicle.evidence.v1",
+          "dataset_id": "$dataset",
+          "snapshot_id": "S4",
+          "source_namespace": "evidence-synthetic",
+          "series_key": "employment",
+          "observation_month": "2026-03-01",
+          "mode": "source_as_of",
+          "exclusive_end_date": "2026-04-12",
+          "status": "value",
+          "value": "111",
+          "source_status": "value",
+          "unit_compatible": true,
+          "unit": {
+            "name": "thousand_persons",
+            "metadata_version": "v1"
+          },
+          "availability_unknown": false,
+          "selected_revision": {
+            "dataset_id": "$dataset",
+            "source_namespace": "evidence-synthetic",
+            "series_key": "employment",
+            "observation_month": "2026-03-01",
+            "source_revision_key": "R5",
+            "snapshot_id": "S4",
+            "source_order": 5,
+            "availability": {
+              "precision": "date",
+              "date": "2026-04-10"
+            },
+            "source_status": "value",
+            "lexical_value": "111",
+            "unit": {
+              "name": "thousand_persons",
+              "metadata_version": "v1"
+            },
+            "occurrences": [
+              {
+                "dataset_id": "$dataset",
+                "source_namespace": "evidence-synthetic",
+                "series_key": "employment",
+                "observation_month": "2026-03-01",
+                "source_revision_key": "R5",
+                "snapshot_id": "S4",
+                "batch_id": "B5",
+                "received_at": "2026-04-17T12:00:00.000000Z"
+              }
+            ]
+          },
+          "blocking_revision": null
+        }
+      ]
+    },
+    {
+      "name": "known_source_before_cutoff_absent",
+      "mode": "source_as_of",
+      "snapshot_id": "S1",
+      "source_namespace": "evidence-synthetic",
+      "series_key": "employment",
+      "months": [
+        "2026-01-01"
+      ],
+      "cutoff": {
+        "exclusive_end_date": "2026-02-15"
+      },
+      "expected_unit": null,
+      "expected": [
+        {
+          "evidence_schema": "chronicle.evidence.v1",
+          "dataset_id": "$dataset",
+          "snapshot_id": "S1",
+          "source_namespace": "evidence-synthetic",
+          "series_key": "employment",
+          "observation_month": "2026-01-01",
+          "mode": "source_as_of",
+          "exclusive_end_date": "2026-02-15",
+          "status": "not_available_at_cutoff",
+          "value": null,
+          "source_status": null,
+          "unit_compatible": null,
+          "unit": null,
+          "availability_unknown": false,
+          "selected_revision": null,
+          "blocking_revision": null
+        }
+      ]
+    }
+  ]
+}

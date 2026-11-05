@@ -1,0 +1,33 @@
+services:
+  app:
+    build: .
+    image: chronicle-local:latest
+    restart: unless-stopped
+    user: "${CHRONICLE_APP_UID:?Use make private-up}:${CHRONICLE_APP_GID:?Use make private-up}"
+    read_only: true
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    pids_limit: 128
+    mem_limit: 512m
+    cpus: 2
+    tmpfs: ["/tmp:size=32m,mode=1777"]
+    ports: ["127.0.0.1:8787:8787"]
+    environment:
+      CHRONICLE_DB_HOST: postgres
+      CHRONICLE_DB_PORT: "5432"
+      CHRONICLE_DB_NAME: chronicle
+      CHRONICLE_DB_READER_PASSWORD: ${CHRONICLE_DB_READER_PASSWORD:?Run make dev-config}
+      CHRONICLE_ACCESS_FILE: /run/chronicle/access.json
+      CHRONICLE_OBJECT_ROOT: /data/objects
+    volumes:
+      - ${CHRONICLE_DATA_ROOT:-./var}/policy:/run/chronicle:ro
+      - ${CHRONICLE_DATA_ROOT:-./var}/objects:/data/objects:ro
+    depends_on:
+      postgres:
+        condition: service_healthy
+    stop_grace_period: 40s
+    logging:
+      driver: json-file
+      options:
+        max-size: 10m
+        max-file: "3"

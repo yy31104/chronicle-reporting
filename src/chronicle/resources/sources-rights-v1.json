@@ -1,0 +1,51 @@
+{
+  "schema_version": "chronicle.source-rights.v1",
+  "policies": {
+    "bls": {
+      "policy_id": "chronicle.direct-bls-numeric-local",
+      "version": "1",
+      "decision_state": "approved_scoped",
+      "reviewer": "project maintainer",
+      "checked_at": "2026-10-29T13:23:47.587990+00:00",
+      "evidence_uri": "https://www.bls.gov/bls/linksite.htm",
+      "scope": "Selected publisher-produced numeric table cells and release metadata from the two explicitly allowlisted archives; raw HTML retained locally for parser provenance. No external assets are acquired.",
+      "permitted_uses": [
+        "local_ingest",
+        "local_analysis",
+        "eval_fixture"
+      ],
+      "excluded_material": [
+        "photos",
+        "illustrations",
+        "logos",
+        "seals",
+        "third-party material"
+      ],
+      "basis_summary": "Publisher policy permits reuse of its public-domain information, subject to exceptions and requested attribution. This records a scoped engineering policy decision, not a legal approval.",
+      "publisher": "U.S. Bureau of Labor Statistics"
+    },
+    "frb": {
+      "policy_id": "chronicle.direct-frb-numeric-local",
+      "version": "1",
+      "decision_state": "approved_scoped",
+      "reviewer": "project maintainer",
+      "checked_at": "2026-10-29T13:23:47.588070+00:00",
+      "evidence_uri": "https://www.federalreserve.gov/disclaimer.htm",
+      "scope": "Selected publisher-produced numeric table cells and release metadata from the two explicitly allowlisted archives; raw HTML retained locally for parser provenance. No external assets are acquired.",
+      "permitted_uses": [
+        "local_ingest",
+        "local_analysis",
+        "eval_fixture"
+      ],
+      "excluded_material": [
+        "photos",
+        "illustrations",
+        "logos",
+        "seals",
+        "third-party material"
+      ],
+      "basis_summary": "Publisher policy permits reuse of its public-domain information, subject to exceptions and requested attribution. This records a scoped engineering policy decision, not a legal approval.",
+      "publisher": "Board of Governors of the Federal Reserve System"
+    }
+  }
+}

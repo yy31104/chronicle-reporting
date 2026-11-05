@@ -1,0 +1,46 @@
+{
+  "id": "G1",
+  "synthetic": true,
+  "description": "Hand-authored expectations: December 90; January 100 then 103; requested February is absent. All receipt clocks are simulated.",
+  "revisions": [
+    {"source_namespace":"synthetic","series_key":"employment","observation_month":"2025-12-01","source_revision_key":"initial","source_order":10,"order_rule":"documented_sequence","availability":{"precision":"date","date":"2026-02-10"},"value":"90","status":"value","unit":{"name":"thousand_persons","metadata_version":"v1"},"occurrences":[{"batch_id":"B1","received_at":"2026-02-10T10:00:00Z"}]},
+    {"source_namespace":"synthetic","series_key":"employment","observation_month":"2026-01-01","source_revision_key":"initial","source_order":10,"order_rule":"documented_sequence","availability":{"precision":"date","date":"2026-02-10"},"value":"100","status":"value","unit":{"name":"thousand_persons","metadata_version":"v1"},"occurrences":[{"batch_id":"B1","received_at":"2026-02-10T10:00:00Z"}]},
+    {"source_namespace":"synthetic","series_key":"employment","observation_month":"2026-01-01","source_revision_key":"revised","source_order":20,"order_rule":"documented_sequence","availability":{"precision":"date","date":"2026-03-15"},"value":"103","status":"value","unit":{"name":"thousand_persons","metadata_version":"v1"},"occurrences":[{"batch_id":"B2","received_at":"2026-03-15T11:00:00Z"}]}
+  ],
+  "snapshots": {"S1":["B1"],"S2":["B1","B2"]},
+  "queries": [
+    {
+      "name":"source_before_revision","mode":"source_as_of","snapshot_id":"S2","source_namespace":"synthetic","series_key":"employment","months":["2025-12-01","2026-01-01","2026-02-01"],"cutoff":{"precision":"date","exclusive_end_date":"2026-03-15"},"expected_unit":{"name":"thousand_persons","metadata_version":"v1"},
+      "expected":[
+        {"observation_month":"2025-12-01","status":"value","value":"90","source_revision_key":"initial","source_order":10,"unit":{"name":"thousand_persons","metadata_version":"v1"},"availability_unknown":false},
+        {"observation_month":"2026-01-01","status":"value","value":"100","source_revision_key":"initial","source_order":10,"unit":{"name":"thousand_persons","metadata_version":"v1"},"availability_unknown":false},
+        {"observation_month":"2026-02-01","status":"not_available_at_cutoff","value":null,"source_revision_key":null,"source_order":null,"unit":null,"availability_unknown":false}
+      ],"expected_january_delta":"10.000000000000"
+    },
+    {
+      "name":"source_after_revision","mode":"source_as_of","snapshot_id":"S2","source_namespace":"synthetic","series_key":"employment","months":["2025-12-01","2026-01-01"],"cutoff":{"precision":"date","exclusive_end_date":"2026-03-16"},"expected_unit":{"name":"thousand_persons","metadata_version":"v1"},
+      "expected":[
+        {"observation_month":"2025-12-01","status":"value","value":"90","source_revision_key":"initial","source_order":10,"unit":{"name":"thousand_persons","metadata_version":"v1"},"availability_unknown":false},
+        {"observation_month":"2026-01-01","status":"value","value":"103","source_revision_key":"revised","source_order":20,"unit":{"name":"thousand_persons","metadata_version":"v1"},"availability_unknown":false}
+      ],"expected_january_delta":"13.000000000000"
+    },
+    {
+      "name":"immutable_old_snapshot","mode":"system_snapshot","snapshot_id":"S1","source_namespace":"synthetic","series_key":"employment","months":["2025-12-01","2026-01-01"],"cutoff":null,"expected_unit":{"name":"thousand_persons","metadata_version":"v1"},
+      "expected":[
+        {"observation_month":"2025-12-01","status":"value","value":"90","source_revision_key":"initial","source_order":10,"unit":{"name":"thousand_persons","metadata_version":"v1"},"availability_unknown":false},
+        {"observation_month":"2026-01-01","status":"value","value":"100","source_revision_key":"initial","source_order":10,"unit":{"name":"thousand_persons","metadata_version":"v1"},"availability_unknown":false}
+      ],"expected_january_delta":"10.000000000000"
+    },
+    {
+      "name":"latest_pinned_to_s2","mode":"latest_corrected","snapshot_id":"S2","source_namespace":"synthetic","series_key":"employment","months":["2025-12-01","2026-01-01"],"cutoff":null,"expected_unit":{"name":"thousand_persons","metadata_version":"v1"},
+      "expected":[
+        {"observation_month":"2025-12-01","status":"value","value":"90","source_revision_key":"initial","source_order":10,"unit":{"name":"thousand_persons","metadata_version":"v1"},"availability_unknown":false},
+        {"observation_month":"2026-01-01","status":"value","value":"103","source_revision_key":"revised","source_order":20,"unit":{"name":"thousand_persons","metadata_version":"v1"},"availability_unknown":false}
+      ],"expected_january_delta":"13.000000000000"
+    },
+    {
+      "name":"exclusive_cutoff_on_initial_day","mode":"source_as_of","snapshot_id":"S2","source_namespace":"synthetic","series_key":"employment","months":["2026-01-01"],"cutoff":{"precision":"date","exclusive_end_date":"2026-02-10"},"expected_unit":null,
+      "expected":[{"observation_month":"2026-01-01","status":"not_available_at_cutoff","value":null,"source_revision_key":null,"source_order":null,"unit":null,"availability_unknown":false}]
+    }
+  ]
+}

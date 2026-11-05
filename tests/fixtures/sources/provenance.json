@@ -1,0 +1,18 @@
+[
+  {
+    "source_id": "frb-2024-02-15",
+    "source_uri": "https://www.federalreserve.gov/releases/g17/20240215/",
+    "retrieved_at": "2026-10-29T13:18:09.893182+00:00",
+    "original_raw_sha256": "d65e3bf69b57dfe62d41a8037929e6ecb67144d3eaa46579e72ce3076b6ebf26",
+    "fixture_sha256": "e79d310c92613342580cb165d307552b246e944b602050978e950119ca3135e9",
+    "transformation": "Extracted release date and Summary table only; added minimal HTML and data-table-1 wrapper."
+  },
+  {
+    "source_id": "frb-2024-03-15",
+    "source_uri": "https://www.federalreserve.gov/releases/g17/20240315/",
+    "retrieved_at": "2026-10-29T13:18:10.141180+00:00",
+    "original_raw_sha256": "2fc6a8713cd29a5de91d45f6c8770b0048f347ae481e690767b46d3e486809ad",
+    "fixture_sha256": "549bade0a8926da4366734b97c76132db2e53746e582018453d8c16a12a83a8a",
+    "transformation": "Extracted release date and Summary table only; added minimal HTML and data-table-1 wrapper."
+  }
+]

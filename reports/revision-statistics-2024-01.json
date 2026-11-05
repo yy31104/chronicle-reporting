@@ -1,0 +1,380 @@
+{
+  "schema": "chronicle.revision-statistics-report.v1",
+  "method": "Aruoba (2008)-style descriptive revision statistics: revision = later retained vintage minus first release; per horizon n, mean, sample standard deviation and direction counts. Horizon h counts later retained vintages; 'latest' is the last retained vintage.",
+  "time_axes": {
+    "vintage_date": "publisher release date (source availability, date precision)",
+    "observation_month": "period the value describes",
+    "local_receipt": "when Chronicle actually received the publication (2026)"
+  },
+  "series": [
+    {
+      "series": "bls.ces.total_nonfarm.sa.monthly_change",
+      "unit": "thousand persons",
+      "definition": "Derived within each vintage: level(m) - level(m-1). Headline example.",
+      "vintages": [
+        {
+          "vintage_date": "2024-02-02",
+          "reference_month": "2024-01-01",
+          "values": {
+            "2024-01-01": "353.000000000000"
+          },
+          "provenance": {
+            "source_id": "bls-2024-02-02",
+            "publisher_uri": "https://www.bls.gov/news.release/archives/empsit_02022024.htm",
+            "saved_html_sha256": "bbf1e54126c64258fa0e9dee99812520e6bac52fe5ff3021124e6153b98cd56a",
+            "release_id": "USDL-24-0148",
+            "table": "ESTABLISHMENT DATA Table B-1. Employees on nonfarm payrolls by industry sector and selected industry detail [In thousands]",
+            "cell_lines": [
+              8531,
+              8532
+            ],
+            "acquisition": "Browser-saved direct publisher HTML; the file hash does not authenticate publisher origin."
+          }
+        },
+        {
+          "vintage_date": "2024-03-08",
+          "reference_month": "2024-02-01",
+          "values": {
+            "2024-01-01": "229.000000000000",
+            "2024-02-01": "275.000000000000"
+          },
+          "provenance": {
+            "source_id": "bls-2024-03-08",
+            "publisher_uri": "https://www.bls.gov/news.release/archives/empsit_03082024.htm",
+            "saved_html_sha256": "7ac4bd1da8ba4eb93d793fd6b6943cc574daf4c24206f90cc8d46172b47c76d1",
+            "release_id": "USDL-24-0451",
+            "table": "ESTABLISHMENT DATA Table B-1. Employees on nonfarm payrolls by industry sector and selected industry detail [In thousands]",
+            "cell_lines": [
+              8213,
+              8214,
+              8215
+            ],
+            "acquisition": "Browser-saved direct publisher HTML; the file hash does not authenticate publisher origin."
+          }
+        }
+      ],
+      "policy": "exact-rational-statistics-round-once-decimal12-half-even-v1",
+      "revisions": [
+        {
+          "observation_month": "2024-01-01",
+          "first_release_vintage": "2024-02-02",
+          "first_release_value": "353.000000000000",
+          "later": [
+            {
+              "vintage_date": "2024-03-08",
+              "horizon": 1,
+              "status": "value",
+              "value": "229.000000000000",
+              "revision": "-124.000000000000"
+            }
+          ]
+        }
+      ],
+      "first_release_not_retained": [],
+      "first_release_unavailable": [],
+      "no_later_vintage": [
+        "2024-02-01"
+      ],
+      "statistics": [
+        {
+          "horizon": "1",
+          "n": 1,
+          "unavailable": 0,
+          "mean": "-124.000000000000",
+          "standard_deviation": null,
+          "direction": {
+            "up": 0,
+            "down": 1,
+            "unchanged": 0
+          }
+        },
+        {
+          "horizon": "latest",
+          "n": 1,
+          "unavailable": 0,
+          "mean": "-124.000000000000",
+          "standard_deviation": null,
+          "direction": {
+            "up": 0,
+            "down": 1,
+            "unchanged": 0
+          }
+        }
+      ]
+    },
+    {
+      "series": "bls.ces.total_nonfarm.sa.level",
+      "unit": "thousand persons",
+      "definition": "Table B-1 total nonfarm, seasonally adjusted level cells.",
+      "vintages": [
+        {
+          "vintage_date": "2024-02-02",
+          "reference_month": "2024-01-01",
+          "values": {
+            "2023-12-01": "157347",
+            "2024-01-01": "157700"
+          },
+          "provenance": {
+            "source_id": "bls-2024-02-02",
+            "publisher_uri": "https://www.bls.gov/news.release/archives/empsit_02022024.htm",
+            "saved_html_sha256": "bbf1e54126c64258fa0e9dee99812520e6bac52fe5ff3021124e6153b98cd56a",
+            "release_id": "USDL-24-0148",
+            "table": "ESTABLISHMENT DATA Table B-1. Employees on nonfarm payrolls by industry sector and selected industry detail [In thousands]",
+            "cell_lines": [
+              8531,
+              8532
+            ],
+            "acquisition": "Browser-saved direct publisher HTML; the file hash does not authenticate publisher origin."
+          }
+        },
+        {
+          "vintage_date": "2024-03-08",
+          "reference_month": "2024-02-01",
+          "values": {
+            "2023-12-01": "157304",
+            "2024-01-01": "157533",
+            "2024-02-01": "157808"
+          },
+          "provenance": {
+            "source_id": "bls-2024-03-08",
+            "publisher_uri": "https://www.bls.gov/news.release/archives/empsit_03082024.htm",
+            "saved_html_sha256": "7ac4bd1da8ba4eb93d793fd6b6943cc574daf4c24206f90cc8d46172b47c76d1",
+            "release_id": "USDL-24-0451",
+            "table": "ESTABLISHMENT DATA Table B-1. Employees on nonfarm payrolls by industry sector and selected industry detail [In thousands]",
+            "cell_lines": [
+              8213,
+              8214,
+              8215
+            ],
+            "acquisition": "Browser-saved direct publisher HTML; the file hash does not authenticate publisher origin."
+          }
+        }
+      ],
+      "policy": "exact-rational-statistics-round-once-decimal12-half-even-v1",
+      "revisions": [
+        {
+          "observation_month": "2024-01-01",
+          "first_release_vintage": "2024-02-02",
+          "first_release_value": "157700.000000000000",
+          "later": [
+            {
+              "vintage_date": "2024-03-08",
+              "horizon": 1,
+              "status": "value",
+              "value": "157533.000000000000",
+              "revision": "-167.000000000000"
+            }
+          ]
+        }
+      ],
+      "first_release_not_retained": [
+        "2023-12-01"
+      ],
+      "first_release_unavailable": [],
+      "no_later_vintage": [
+        "2024-02-01"
+      ],
+      "statistics": [
+        {
+          "horizon": "1",
+          "n": 1,
+          "unavailable": 0,
+          "mean": "-167.000000000000",
+          "standard_deviation": null,
+          "direction": {
+            "up": 0,
+            "down": 1,
+            "unchanged": 0
+          }
+        },
+        {
+          "horizon": "latest",
+          "n": 1,
+          "unavailable": 0,
+          "mean": "-167.000000000000",
+          "standard_deviation": null,
+          "direction": {
+            "up": 0,
+            "down": 1,
+            "unchanged": 0
+          }
+        }
+      ]
+    },
+    {
+      "series": "frb.g17.production.sa.index",
+      "unit": "index, 2017=100, seasonally adjusted",
+      "definition": "G.17 total industrial production index as parsed by the FRB adapter.",
+      "vintages": [
+        {
+          "vintage_date": "2024-02-15",
+          "reference_month": "2024-01-01",
+          "values": {
+            "2023-11-01": "102.7",
+            "2023-12-01": "102.7",
+            "2024-01-01": "102.6"
+          },
+          "provenance": {
+            "source_id": "frb-2024-02-15",
+            "publisher_uri": "https://www.federalreserve.gov/releases/g17/20240215/",
+            "parsed_html_sha256": "bc207f5f1f2bdf5e9be5d3b8b81bb448ce8f52efe2a74a43f522e42143f4d7e4",
+            "local_receipt": "2026-10-29T13:26:04.139185+00:00",
+            "acquisition": "Publisher-produced Summary table cells, seasonally adjusted, 2017=100."
+          }
+        },
+        {
+          "vintage_date": "2024-03-15",
+          "reference_month": "2024-02-01",
+          "values": {
+            "2023-11-01": "103.0",
+            "2023-12-01": "102.7",
+            "2024-01-01": "102.2",
+            "2024-02-01": "102.3"
+          },
+          "provenance": {
+            "source_id": "frb-2024-03-15",
+            "publisher_uri": "https://www.federalreserve.gov/releases/g17/20240315/",
+            "parsed_html_sha256": "b082aa8149eabac7bb2bbec58704ee80f26304c72af4743894f2076908d1c2ba",
+            "local_receipt": "2026-10-29T13:26:04.404481+00:00",
+            "acquisition": "Publisher-produced Summary table cells, seasonally adjusted, 2017=100."
+          }
+        }
+      ],
+      "policy": "exact-rational-statistics-round-once-decimal12-half-even-v1",
+      "revisions": [
+        {
+          "observation_month": "2024-01-01",
+          "first_release_vintage": "2024-02-15",
+          "first_release_value": "102.600000000000",
+          "later": [
+            {
+              "vintage_date": "2024-03-15",
+              "horizon": 1,
+              "status": "value",
+              "value": "102.200000000000",
+              "revision": "-0.400000000000"
+            }
+          ]
+        }
+      ],
+      "first_release_not_retained": [
+        "2023-11-01",
+        "2023-12-01"
+      ],
+      "first_release_unavailable": [],
+      "no_later_vintage": [
+        "2024-02-01"
+      ],
+      "statistics": [
+        {
+          "horizon": "1",
+          "n": 1,
+          "unavailable": 0,
+          "mean": "-0.400000000000",
+          "standard_deviation": null,
+          "direction": {
+            "up": 0,
+            "down": 1,
+            "unchanged": 0
+          }
+        },
+        {
+          "horizon": "latest",
+          "n": 1,
+          "unavailable": 0,
+          "mean": "-0.400000000000",
+          "standard_deviation": null,
+          "direction": {
+            "up": 0,
+            "down": 1,
+            "unchanged": 0
+          }
+        }
+      ]
+    },
+    {
+      "series": "frb.g17.production.sa.mean3",
+      "unit": "index, 2017=100, seasonally adjusted",
+      "definition": "Derived within each vintage: exact mean of months m-2..m (Chronicle production_mean3), kept unrounded until each statistic is rounded once.",
+      "vintages": [
+        {
+          "vintage_date": "2024-02-15",
+          "reference_month": "2024-01-01",
+          "values": {
+            "2024-01-01": "102.666666666667"
+          },
+          "provenance": {
+            "source_id": "frb-2024-02-15",
+            "publisher_uri": "https://www.federalreserve.gov/releases/g17/20240215/",
+            "parsed_html_sha256": "bc207f5f1f2bdf5e9be5d3b8b81bb448ce8f52efe2a74a43f522e42143f4d7e4",
+            "local_receipt": "2026-10-29T13:26:04.139185+00:00",
+            "acquisition": "Publisher-produced Summary table cells, seasonally adjusted, 2017=100."
+          }
+        },
+        {
+          "vintage_date": "2024-03-15",
+          "reference_month": "2024-02-01",
+          "values": {
+            "2024-01-01": "102.633333333333",
+            "2024-02-01": "102.400000000000"
+          },
+          "provenance": {
+            "source_id": "frb-2024-03-15",
+            "publisher_uri": "https://www.federalreserve.gov/releases/g17/20240315/",
+            "parsed_html_sha256": "b082aa8149eabac7bb2bbec58704ee80f26304c72af4743894f2076908d1c2ba",
+            "local_receipt": "2026-10-29T13:26:04.404481+00:00",
+            "acquisition": "Publisher-produced Summary table cells, seasonally adjusted, 2017=100."
+          }
+        }
+      ],
+      "policy": "exact-rational-statistics-round-once-decimal12-half-even-v1",
+      "revisions": [
+        {
+          "observation_month": "2024-01-01",
+          "first_release_vintage": "2024-02-15",
+          "first_release_value": "102.666666666667",
+          "later": [
+            {
+              "vintage_date": "2024-03-15",
+              "horizon": 1,
+              "status": "value",
+              "value": "102.633333333333",
+              "revision": "-0.033333333333"
+            }
+          ]
+        }
+      ],
+      "first_release_not_retained": [],
+      "first_release_unavailable": [],
+      "no_later_vintage": [
+        "2024-02-01"
+      ],
+      "statistics": [
+        {
+          "horizon": "1",
+          "n": 1,
+          "unavailable": 0,
+          "mean": "-0.033333333333",
+          "standard_deviation": null,
+          "direction": {
+            "up": 0,
+            "down": 1,
+            "unchanged": 0
+          }
+        },
+        {
+          "horizon": "latest",
+          "n": 1,
+          "unavailable": 0,
+          "mean": "-0.033333333333",
+          "standard_deviation": null,
+          "direction": {
+            "up": 0,
+            "down": 1,
+            "unchanged": 0
+          }
+        }
+      ]
+    }
+  ]
+}

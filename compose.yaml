@@ -1,0 +1,17 @@
+services:
+  postgres:
+    image: postgres:18@sha256:5a5a84b19854a9ffaa54082c166ff4ec27473a361e496e5ea167f298f2da9722
+    environment:
+      POSTGRES_DB: chronicle
+      POSTGRES_PASSWORD: ${CHRONICLE_DB_ADMIN_PASSWORD:?Run make dev-config first}
+    ports:
+      - "127.0.0.1:${CHRONICLE_DB_PORT:-55473}:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d chronicle"]
+      interval: 2s
+      timeout: 3s
+      retries: 30
+volumes:
+  postgres_data:

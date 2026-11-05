@@ -1,0 +1,80 @@
+{
+  "schema": "chronicle.archive-cells.v1",
+  "releases": [
+    {
+      "source_id": "bls-2024-02-02",
+      "release_day": "2024-02-02",
+      "reference_month": "2024-01-01",
+      "values": {
+        "2023-12-01": "157347",
+        "2024-01-01": "157700"
+      },
+      "provenance": {
+        "publisher_uri": "https://www.bls.gov/news.release/archives/empsit_02022024.htm",
+        "saved_html_sha256": "bbf1e54126c64258fa0e9dee99812520e6bac52fe5ff3021124e6153b98cd56a",
+        "release_id": "USDL-24-0148",
+        "table": "ESTABLISHMENT DATA Table B-1. Employees on nonfarm payrolls by industry sector and selected industry detail [In thousands]",
+        "cell_lines": [
+          8531,
+          8532
+        ],
+        "acquisition": "Browser-saved direct publisher HTML; the file hash does not authenticate publisher origin."
+      }
+    },
+    {
+      "source_id": "bls-2024-03-08",
+      "release_day": "2024-03-08",
+      "reference_month": "2024-02-01",
+      "values": {
+        "2023-12-01": "157304",
+        "2024-01-01": "157533",
+        "2024-02-01": "157808"
+      },
+      "provenance": {
+        "publisher_uri": "https://www.bls.gov/news.release/archives/empsit_03082024.htm",
+        "saved_html_sha256": "7ac4bd1da8ba4eb93d793fd6b6943cc574daf4c24206f90cc8d46172b47c76d1",
+        "release_id": "USDL-24-0451",
+        "table": "ESTABLISHMENT DATA Table B-1. Employees on nonfarm payrolls by industry sector and selected industry detail [In thousands]",
+        "cell_lines": [
+          8213,
+          8214,
+          8215
+        ],
+        "acquisition": "Browser-saved direct publisher HTML; the file hash does not authenticate publisher origin."
+      }
+    },
+    {
+      "source_id": "frb-2024-02-15",
+      "release_day": "2024-02-15",
+      "reference_month": "2024-01-01",
+      "values": {
+        "2023-11-01": "102.7",
+        "2023-12-01": "102.7",
+        "2024-01-01": "102.6"
+      },
+      "provenance": {
+        "publisher_uri": "https://www.federalreserve.gov/releases/g17/20240215/",
+        "parsed_html_sha256": "bc207f5f1f2bdf5e9be5d3b8b81bb448ce8f52efe2a74a43f522e42143f4d7e4",
+        "local_receipt": "2026-10-29T13:26:04.139185+00:00",
+        "acquisition": "Publisher-produced Summary table cells, seasonally adjusted, 2017=100."
+      }
+    },
+    {
+      "source_id": "frb-2024-03-15",
+      "release_day": "2024-03-15",
+      "reference_month": "2024-02-01",
+      "values": {
+        "2023-11-01": "103.0",
+        "2023-12-01": "102.7",
+        "2024-01-01": "102.2",
+        "2024-02-01": "102.3"
+      },
+      "provenance": {
+        "publisher_uri": "https://www.federalreserve.gov/releases/g17/20240315/",
+        "parsed_html_sha256": "b082aa8149eabac7bb2bbec58704ee80f26304c72af4743894f2076908d1c2ba",
+        "local_receipt": "2026-10-29T13:26:04.404481+00:00",
+        "acquisition": "Publisher-produced Summary table cells, seasonally adjusted, 2017=100."
+      }
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "archive_cells_sha256": "06021563d58d353c0dbdd525bc9a8de1ddb2a4d88209006bb3915724ca462700",
+  "policy_sha256": {
+    "bls": "d75e94ef822baa005fb6251ad73e5d5ce9c8065f26dccaeff0a4a8bf1ffb6932",
+    "frb": "afe1121983044c759e34fae52c35c01ff081afc12936c4f666fe7345b4f7c68e"
+  },
+  "schema": "chronicle.resource-inventory.v1",
+  "source_rights_sha256": "ec722ec2965d4a296a2674322d5388565d9d4d2808c90361c46e01b20c9563e2"
+}

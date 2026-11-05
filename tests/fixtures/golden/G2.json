@@ -1,0 +1,17 @@
+{
+  "id":"G2","synthetic":true,
+  "description":"All receipts and snapshots are simulated. A March 15 source revision arrives locally on March 18; S_BEFORE_RECEIPT cannot contain it.",
+  "revisions":[
+    {"source_namespace":"synthetic","series_key":"employment","observation_month":"2026-01-01","source_revision_key":"initial","source_order":10,"order_rule":"documented_sequence","availability":{"precision":"date","date":"2026-02-10"},"value":"100","status":"value","unit":{"name":"thousand_persons","metadata_version":"v1"},"occurrences":[{"batch_id":"B1","received_at":"2026-02-10T10:00:00Z"}]},
+    {"source_namespace":"synthetic","series_key":"employment","observation_month":"2026-01-01","source_revision_key":"late-received","source_order":20,"order_rule":"documented_sequence","availability":{"precision":"date","date":"2026-03-15"},"value":"103","status":"value","unit":{"name":"thousand_persons","metadata_version":"v1"},"occurrences":[{"batch_id":"B2","received_at":"2026-03-18T10:00:00Z"}]}
+  ],
+  "snapshots":{"S_BEFORE_RECEIPT":["B1"],"S_AFTER_RECEIPT":["B1","B2"]},
+  "queries":[
+    {"name":"reconstruct_source_on_march16","mode":"source_as_of","snapshot_id":"S_AFTER_RECEIPT","source_namespace":"synthetic","series_key":"employment","months":["2026-01-01"],"cutoff":{"precision":"date","exclusive_end_date":"2026-03-17"},"expected_unit":null,
+      "expected":[{"observation_month":"2026-01-01","status":"value","value":"103","source_revision_key":"late-received","source_order":20,"unit":{"name":"thousand_persons","metadata_version":"v1"},"availability_unknown":false}]},
+    {"name":"actual_simulated_snapshot_before_receipt","mode":"system_snapshot","snapshot_id":"S_BEFORE_RECEIPT","source_namespace":"synthetic","series_key":"employment","months":["2026-01-01"],"cutoff":null,"expected_unit":null,
+      "expected":[{"observation_month":"2026-01-01","status":"value","value":"100","source_revision_key":"initial","source_order":10,"unit":{"name":"thousand_persons","metadata_version":"v1"},"availability_unknown":false}]},
+    {"name":"source_query_cannot_bypass_snapshot","mode":"source_as_of","snapshot_id":"S_BEFORE_RECEIPT","source_namespace":"synthetic","series_key":"employment","months":["2026-01-01"],"cutoff":{"precision":"date","exclusive_end_date":"2026-03-17"},"expected_unit":null,
+      "expected":[{"observation_month":"2026-01-01","status":"value","value":"100","source_revision_key":"initial","source_order":10,"unit":{"name":"thousand_persons","metadata_version":"v1"},"availability_unknown":false}]}
+  ]
+}

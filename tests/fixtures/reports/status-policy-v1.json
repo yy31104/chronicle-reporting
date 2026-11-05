@@ -1,0 +1,92 @@
+{
+  "schema_version": "chronicle.report-status-fixtures.v1",
+  "synthetic": true,
+  "authorship": "Hand-authored presentation cases with independent expected outputs",
+  "selection_compatibility": "Existing stored statuses and G1-G4 expectations remain unchanged",
+  "cases": [
+    {
+      "name": "latest_absence_does_not_invent_a_cutoff",
+      "mode": "latest_corrected",
+      "exclusive_end_date": null,
+      "storage_status": "not_available_at_cutoff",
+      "value": null,
+      "source_status": null,
+      "unit_compatible": null,
+      "expected": {
+        "storage_status": "not_available_at_cutoff",
+        "display_status": "not_available_at_cutoff",
+        "message_code": "NO_RETAINED_DATA",
+        "message_zh": "No data in this snapshot",
+        "warnings": []
+      }
+    },
+    {
+      "name": "system_snapshot_absence_does_not_invent_a_cutoff",
+      "mode": "system_snapshot",
+      "exclusive_end_date": null,
+      "storage_status": "not_available_at_cutoff",
+      "value": null,
+      "source_status": null,
+      "unit_compatible": null,
+      "expected": {
+        "storage_status": "not_available_at_cutoff",
+        "display_status": "not_available_at_cutoff",
+        "message_code": "NO_RETAINED_DATA",
+        "message_zh": "No data in this snapshot",
+        "warnings": []
+      }
+    },
+    {
+      "name": "source_cutoff_absence_uses_cutoff_wording",
+      "mode": "source_as_of",
+      "exclusive_end_date": "2026-03-16",
+      "storage_status": "not_available_at_cutoff",
+      "value": null,
+      "source_status": null,
+      "unit_compatible": null,
+      "expected": {
+        "storage_status": "not_available_at_cutoff",
+        "display_status": "not_available_at_cutoff",
+        "message_code": "NO_DATA_BEFORE_CUTOFF",
+        "message_zh": "No data before the cutoff",
+        "warnings": []
+      }
+    },
+    {
+      "name": "withdrawal_precedes_incompatible_unit_in_report_display",
+      "mode": "system_snapshot",
+      "exclusive_end_date": null,
+      "storage_status": "unit_mismatch",
+      "value": null,
+      "source_status": "withdrawn",
+      "unit_compatible": false,
+      "selected_unit": {"name": "persons", "metadata_version": "v1"},
+      "expected_unit": {"name": "thousand_persons", "metadata_version": "v1"},
+      "expected": {
+        "storage_status": "unit_mismatch",
+        "display_status": "withdrawn",
+        "message_code": "SOURCE_WITHDRAWN",
+        "message_zh": "Source withdrew this value",
+        "warnings": ["unit_mismatch"]
+      }
+    },
+    {
+      "name": "source_missing_precedes_incompatible_metadata_in_report_display",
+      "mode": "latest_corrected",
+      "exclusive_end_date": null,
+      "storage_status": "unit_mismatch",
+      "value": null,
+      "source_status": "missing",
+      "unit_compatible": false,
+      "selected_unit": {"name": "index", "metadata_version": "base2022"},
+      "expected_unit": {"name": "index", "metadata_version": "base2017"},
+      "expected": {
+        "storage_status": "unit_mismatch",
+        "display_status": "missing",
+        "message_code": "SOURCE_MISSING",
+        "message_zh": "Source marks this value missing",
+        "warnings": ["unit_mismatch"]
+      }
+    }
+  ]
+}

@@ -1,0 +1,90 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  checks:
+    name: Checks, pure tests and PostgreSQL tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    services:
+      postgres:
+        # Same pinned image as compose.yaml.
+        image: postgres:18@sha256:5a5a84b19854a9ffaa54082c166ff4ec27473a361e496e5ea167f298f2da9722
+        env:
+          POSTGRES_DB: chronicle
+          # Throwaway password for a container that exists only for this job.
+          POSTGRES_PASSWORD: ci-only-disposable-admin
+        ports:
+          - 55473:5432
+        options: >-
+          --health-cmd "pg_isready -U postgres -d chronicle"
+          --health-interval 2s
+          --health-timeout 3s
+          --health-retries 30
+
+    env:
+      UV_PYTHON: "3.12.15"
+      CHRONICLE_DB_HOST: 127.0.0.1
+      CHRONICLE_DB_PORT: "55473"
+      CHRONICLE_DB_ADMIN_PASSWORD: ci-only-disposable-admin
+
+    steps:
+      - name: Check out source
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Set up Python
+        uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
+        with:
+          python-version: "3.12.15"
+
+      - name: Set up uv
+        uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2 # v10.3.3
+        with:
+          version: "0.11.14"
+          enable-cache: false
+
+      - name: Point backup tests at the service container
+        # Backup and restore tests run pg_dump/pg_restore inside the database
+        # container. The job context is available in steps, not in job-level env.
+        run: echo "CHRONICLE_DB_CONTAINER=${{ job.services.postgres.id }}" >> "$GITHUB_ENV"
+
+      - name: Generate runtime role passwords for this job
+        run: |
+          for role in IMPORTER PUBLISHER READER; do
+            password="$(openssl rand -hex 24)"
+            echo "::add-mask::$password"
+            echo "CHRONICLE_DB_${role}_PASSWORD=$password" >> "$GITHUB_ENV"
+          done
+
+      - name: Install locked dependencies
+        run: make bootstrap
+
+      - name: Lint, format and import checks
+        run: make check
+
+      - name: Resource and report regeneration
+        run: |
+          PYTHONPATH=src uv run --locked python scripts/refresh_resources.py --check
+          PYTHONPATH=src uv run --locked python scripts/revision_statistics_report.py --check
+
+      - name: Pure tests
+        run: make test
+
+      - name: Build distribution
+        run: make build
+
+      - name: Provision roles and apply migrations
+        run: PYTHONPATH=src uv run --locked python -m chronicle.db migrate
+
+      - name: PostgreSQL tests
+        run: make test-postgres
