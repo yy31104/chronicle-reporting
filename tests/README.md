@@ -37,13 +37,12 @@ membership. Three independent selector mutations remove the outer dataset filter
 membership-to-occurrence scope and occurrence-to-revision scope. The latter two
 then return January 103 instead of the old snapshot's frozen 100. The former returns
 deterministic foreign 999 values rather than depending on SQL tie-breaking. These
-are selector sensitivities; future PR03 evidence/report SQL needs its own mutations.
+test selector behavior; evidence and report SQL require separate mutation coverage.
 
-The separate `fixtures/reports/status-policy-v1.json` is a hand-authored acceptance
-corpus for the user-approved PR03 display policy. It does not change G1–G4 or claim
-an implemented/passing renderer.
+The separate `fixtures/reports/status-policy-v1.json` defines expected report display
+statuses independently of the frozen G1–G4 numeric cases.
 
 `make demo-reference` is pure reference-only. `make demo-postgres` executes actual
 SQL over the same 20 synthetic cases and retains their contexts in the development
 DB. Neither is a fixed report/API, real data, generated answer quality or performance benchmark.
-All synthetic receipt clocks are clearly labeled; no personal mastery is inferred.
+All synthetic receipt clocks are clearly labeled.
