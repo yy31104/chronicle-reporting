@@ -1,5 +1,7 @@
 # Chronicle Reporting
 
+[![CI](https://github.com/yy31104/chronicle-reporting/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/yy31104/chronicle-reporting/actions/workflows/ci.yml)
+
 Compare monthly economic reports across source revisions while keeping old answers reproducible.
 
 Solo portfolio project. Built with AI assistance.
@@ -8,7 +10,19 @@ Chronicle retains source revisions, immutable snapshots and the evidence behind 
 
 The included BLS example revises January 2024 employment growth from 353 to 229 thousand persons. The Federal Reserve example changes the production mean from 102.666666666667 to 102.633333333333. Their saved-output difference is -0.033333333334; the exact difference is -1/30, displayed as -0.033333333333.
 
-[View the comparison screen](docs/images/exact-difference.png).
+![Snapshot comparison with exact revision differences and retained input evidence](docs/images/exact-difference.png)
+
+## Try it
+
+Requires Python 3.12, uv and a running Docker engine. From a fresh checkout:
+
+```sh
+make demo
+```
+
+The demo starts a disposable PostgreSQL 18 container, applies the real migrations and runs the production report code with synthetic inputs. It verifies employment growth changing from 10 to 13, the old snapshot still returning 10, a three-month production mean and replay of all four reports. It removes its container and volume when finished. The first run downloads the locked Python dependencies and PostgreSQL image.
+
+The browser interface shown above uses the persistent local setup below.
 
 ## Run locally
 

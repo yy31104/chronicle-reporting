@@ -80,6 +80,9 @@ jobs:
       - name: Pure tests
         run: make test
 
+      - name: Disposable production demo
+        run: make demo
+
       - name: Build distribution
         run: make build
 

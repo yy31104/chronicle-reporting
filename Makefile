@@ -2,14 +2,14 @@ UV ?= uv
 UV_CACHE_DIR ?= $(CURDIR)/.cache/uv
 export UV_CACHE_DIR
 
-.PHONY: bootstrap check test build demo-reference dev-config dev-up dev-down db-migrate test-postgres demo-postgres wheelhouse
+.PHONY: bootstrap check test build demo demo-reference dev-config dev-up dev-down db-migrate test-postgres demo-postgres wheelhouse
 
 bootstrap:
 	$(UV) sync --locked
 
 check:
-	$(UV) run --locked ruff check src tests
-	$(UV) run --locked ruff format --check src tests
+	$(UV) run --locked ruff check src tests scripts/demo.py
+	$(UV) run --locked ruff format --check src tests scripts/demo.py
 	PYTHONPATH=src $(UV) run --locked python -c "import chronicle; print('chronicle: package import OK')"
 
 test:
@@ -17,6 +17,9 @@ test:
 
 build:
 	$(UV) build
+
+demo:
+	PYTHONPATH=src $(UV) run --locked python scripts/demo.py
 
 demo-reference:
 	$(UV) run --locked python -m tests.reference.demo
