@@ -22,6 +22,13 @@ make demo
 
 The demo starts a disposable PostgreSQL 18 container, applies the real migrations and runs the production report code with synthetic inputs. It verifies employment growth changing from 10 to 13, the old snapshot still returning 10, a three-month production mean and replay of all four reports. It removes its container and volume when finished. The first run downloads the locked Python dependencies and PostgreSQL image.
 
+A successful run ends with:
+
+```text
+Demo container and its volume removed.
+PASS: revised values, frozen snapshot and all four report replays verified.
+```
+
 The browser interface shown above uses the persistent local setup below.
 
 ## Run locally
