@@ -109,7 +109,7 @@ it must remain available for this CLI retry path. Report replay needs no such fi
 
 ## Verification and limits
 
-The archive example retains five BLS and seven Federal Reserve cells with publisher URLs, release dates, hashes and provenance in `data/archive/releases.json`. The January employment example is353 to229 thousand persons. The two production windows are102.7/102.7/102.6 and103.0/102.7/102.2. The adapter selects only the explicitly reviewed months.
+The archive example retains five BLS and seven Federal Reserve cells with publisher URLs, release dates, hashes and provenance in `data/archive/releases.json`. The January employment example is 353 to 229 thousand persons. The two production windows are 102.7/102.7/102.6 and 103.0/102.7/102.2. The adapter selects only the explicitly reviewed months.
 
 The source tests cover adjacent-column poison, previous-estimate exclusion, source/unit/date/header drift, missing cells, rights denial, actual receipt semantics, byte limits, truncation, redirects and HTTP failure. Saved-file tests cover provenance, file safety, retry identity and parser repair. Controlled test responses are not evidence that a publisher endpoint is reachable from every deployment.
 
